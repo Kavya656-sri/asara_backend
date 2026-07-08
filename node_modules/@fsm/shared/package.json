@@ -1,0 +1,15 @@
+{
+  "name": "@fsm/shared",
+  "version": "1.0.0",
+  "description": "Shared utilities, contracts, and events for FSM microservices",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    "./middleware": "./middleware/verifyToken.js",
+    "./httpClient": "./utils/httpClient.js",
+    "./response": "./utils/responseFormatter.js",
+    "./events": "./events/eventBus.js",
+    "./logger": "./utils/logger.js",
+    "./database": "./utils/database.js"
+  }
+}

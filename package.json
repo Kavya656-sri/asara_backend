@@ -1,0 +1,28 @@
+{
+  "name": "fsm-microservice",
+  "version": "1.0.0",
+  "description": "Ezone FSM Microservices Architecture",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently -n gateway,auth,master -c blue,green,yellow \"npm run dev:gateway\" \"npm run dev:auth\" \"npm run dev:master\"",
+    "dev:all": "npm run dev",
+    "start": "npm run start -w services/api-gateway",
+    "dev:gateway": "npm run dev -w services/api-gateway",
+    "dev:auth": "npm run dev -w services/auth-service",
+    "dev:master": "npm run dev -w services/master-data-service",
+    "install:all": "npm install --workspaces"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "amqplib": "^2.0.1"
+  }
+}
